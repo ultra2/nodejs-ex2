@@ -76,6 +76,10 @@ app.get('/', function (req, res) {
   }
 });
 
+app.get('/a/b/c/d', function (req, res) {
+    res.send('/a/b/c/d');
+});
+
 app.get('/pagecount', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
