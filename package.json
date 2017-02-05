@@ -19,7 +19,7 @@
   },
   "scripts": {
     "preinstall": "npm install -g node-inspector",
-    "start": "node-debug --web-host 127.0.0.2 server.js",
+    "start": "node-debug --web-host 0.0.0.0 -d 4000 -p 8080 server.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
   },
   "repository": {
