@@ -18,7 +18,7 @@
     "npm": "*"
   },
   "scripts": {
-    "start": "node --debug server.js"
+    "start": "node --inspect server.js"
   },
   "repository": {
     "type": "git",
