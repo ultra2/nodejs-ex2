@@ -80,7 +80,9 @@ app.get('/', function (req, res) {
 app.get('/debugurl', function (req, res) {
     request('http://localhost:9229/json/list', function (error, response, body) {
         try{
-            var url = body //JSON.parse(body)[0].devtoolsFrontendUrl
+            var url = JSON.parse(body)[0].devtoolsFrontendUrl
+            url = url.replace("https://chrome-devtools-frontend.appspot.com", "chrome-devtools://devtools/remote")
+            url = url.replace("localhost:9229", "nodejs-ex-debug-tauren.44fs.preview.openshiftapps.com")
             res.send(url)
             res.end()
         }
