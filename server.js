@@ -77,7 +77,7 @@ app.get('/', function (req, res) {
   }
 });
 
-app.get('debugurl', function (req, res) {
+app.get('/debugurl', function (req, res) {
     request('http://localhost:9229/json/list', function (error, response, body) {
         //var url = JSON.parse(body).url
         res.send(body)
