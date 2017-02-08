@@ -3,8 +3,9 @@ var express = require('express'),
     fs      = require('fs'),
     app     = express(),
     eps     = require('ejs'),
-    morgan  = require('morgan');
-    
+    morgan  = require('morgan'),
+    request = require('request');
+
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
@@ -76,8 +77,12 @@ app.get('/', function (req, res) {
   }
 });
 
-app.get('/a/b/c/d', function (req, res) {
-    res.send('/a/b/c/d');
+app.get('debugurl', function (req, res) {
+    request('http://localhost:9229/json/list', function (error, response, body) {
+        //var url = JSON.parse(body).url
+        res.send(body)
+        res.end()
+    })
 });
 
 app.get('/pagecount', function (req, res) {
